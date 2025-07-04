@@ -46,5 +46,5 @@ function whack(e) {
 
 moles.forEach(mole => mole.addEventListener('click', whack));
 
-// Auto-start the game when page loads
+
 startGame();
