@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.player {
+  max-width: 750px;
+  width: 100%;
+  overflow: hidden;
+  border: 5px solid #444;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  background: #000;
+}
+
+.viewer {
+  width: 100%;
+  display: block;
+}
+
+.player__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+}
+
+.player__button {
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.player__slider {
+  width: 100px;
+  margin: 5px;
+}
+
+.progress {
+  flex: 1;
+  height: 5px;
+  background: #555;
+  cursor: pointer;
+  margin-right: 10px;
+  position: relative;
+}
+
+.progress__filled {
+  width: 0;
+  background: #ffc600;
+  height: 100%;
+  transition: width 0.1s linear;
+}

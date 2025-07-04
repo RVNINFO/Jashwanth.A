@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task List with Shift Select</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+      margin: 0;
+    }
+
+    .inbox {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 20px;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 20px;
+      transform: scale(1.5);
+      cursor: pointer;
+    }
+
+    .item label {
+      flex: 1;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Strikethrough style */
+    .checked {
+      text-decoration: line-through;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="inbox">
+    <div class="item"><input type="checkbox"><label>Buy groceries</label></div>
+    <div class="item"><input type="checkbox"><label>Clean the house</label></div>
+    <div class="item"><input type="checkbox"><label>Finish JavaScript assignment</label></div>
+    <div class="item"><input type="checkbox"><label>Reply to emails</label></div>
+    <div class="item"><input type="checkbox"><label>Prepare lunch</label></div>
+    <div class="item"><input type="checkbox"><label>Pay electricity bill</label></div>
+    <div class="item"><input type="checkbox"><label>Read a book</label></div>
+    <div class="item"><input type="checkbox"><label>Walk the dog</label></div>
+    <div class="item"><input type="checkbox"><label>Workout</label></div>
+    <div class="item"><input type="checkbox"><label>Call Mom</label></div>
+  </div>
+
+  <script>
+    const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+    let lastChecked = null;
+
+    function handleCheck(e) {
+      let inBetween = false;
+
+      // Shift + click functionality
+      if (e.shiftKey && this.checked) {
+        checkboxes.forEach(checkbox => {
+          if (checkbox === this || checkbox === lastChecked) {
+            inBetween = !inBetween;
+          }
+          if (inBetween) {
+            checkbox.checked = true;
+            checkbox.nextElementSibling.classList.add('checked');
+          }
+        });
+      }
+
+      lastChecked = this;
+
+      // Toggle strike-through class
+      if (this.checked) {
+        this.nextElementSibling.classList.add('checked');
+      } else {
+        this.nextElementSibling.classList.remove('checked');
+      }
+    }
+
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('click', handleCheck);
+    });
+  </script>
+
+</body>
+</html>
