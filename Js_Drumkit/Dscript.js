@@ -23,11 +23,11 @@ function removeTransition(e) {
   this.classList.remove('playing');
 }
 
-// Setup
+
 const keys = document.querySelectorAll('.key');
 keys.forEach(key => {
-  key.addEventListener('click', handleClick);         // 👈 mouse click
+  key.addEventListener('click', handleClick);         
   key.addEventListener('transitionend', removeTransition);
 });
 
-window.addEventListener('keydown', handleKeydown);    // 👈 keyboard press
+window.addEventListener('keydown', handleKeydown);    
