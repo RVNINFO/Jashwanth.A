@@ -6,7 +6,6 @@ const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const sliders = player.querySelectorAll('.player__slider');
 
-// Play/pause toggle
 function togglePlay() {
   const method = video.paused ? 'play' : 'pause';
   video[method]();
@@ -16,17 +15,16 @@ function updateButton() {
   toggle.textContent = video.paused ? '►' : '❚❚';
 }
 
-// Skip buttons
+
 function skip() {
   video.currentTime += parseFloat(this.dataset.skip);
 }
 
-// Sliders (volume, speed)
+
 function handleRangeUpdate() {
   video[this.name] = this.value;
 }
 
-// Progress bar
 function handleProgress() {
   const percent = (video.currentTime / video.duration) * 100;
   progressFilled.style.width = `${percent}%`;
@@ -37,7 +35,6 @@ function scrub(e) {
   video.currentTime = scrubTime;
 }
 
-// Event listeners
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
