@@ -8,7 +8,7 @@ const stopBtn = document.getElementById('stop');
 const msg = new SpeechSynthesisUtterance();
 let voices = [];
 
-// Populate available voices
+
 function populateVoices() {
   voices = speechSynthesis.getVoices();
   voiceSelect.innerHTML = voices
@@ -16,26 +16,25 @@ function populateVoices() {
     .join('');
 }
 
-populateVoices();
+
 speechSynthesis.onvoiceschanged = populateVoices;
 
-// Set voice
+
 voiceSelect.addEventListener('change', () => {
   msg.voice = voices.find(voice => voice.name === voiceSelect.value);
 });
 
-// Update pitch and rate
+
 rate.addEventListener('change', () => msg.rate = rate.value);
 pitch.addEventListener('change', () => msg.pitch = pitch.value);
 
-// Speak text
 speakBtn.addEventListener('click', () => {
   msg.text = textArea.value;
   speechSynthesis.cancel(); // cancel any current speaking
   speechSynthesis.speak(msg);
 });
 
-// Stop speaking
+
 stopBtn.addEventListener('click', () => {
   speechSynthesis.cancel();
 });
