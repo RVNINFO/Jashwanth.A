@@ -1,7 +1,7 @@
 const needle = document.getElementById("needle");
 const speedDisplay = document.getElementById("speed");
 
-// Compass
+
 if (window.DeviceOrientationEvent) {
   // Android
   window.addEventListener("deviceorientationabsolute", handleOrientation, true);
@@ -21,7 +21,7 @@ function handleOrientation(event) {
   }
 }
 
-// Speedometer
+
 if ("geolocation" in navigator) {
   navigator.geolocation.watchPosition(
     (position) => {
