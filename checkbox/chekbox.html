@@ -43,7 +43,7 @@
       cursor: pointer;
     }
 
-    /* Strikethrough style */
+
     .checked {
       text-decoration: line-through;
       color: #888;
@@ -72,7 +72,7 @@
     function handleCheck(e) {
       let inBetween = false;
 
-      // Shift + click functionality
+
       if (e.shiftKey && this.checked) {
         checkboxes.forEach(checkbox => {
           if (checkbox === this || checkbox === lastChecked) {
@@ -87,7 +87,7 @@
 
       lastChecked = this;
 
-      // Toggle strike-through class
+
       if (this.checked) {
         this.nextElementSibling.classList.add('checked');
       } else {
